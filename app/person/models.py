@@ -35,6 +35,10 @@ class Rollup(models.Model):
   name = models.CharField(max_length=255, null=True, blank=True)
   location = models.CharField(max_length=255, null=True, blank=True)
 
+### Tests for RefreshRollup:
+# * Does the function clear out any old objects?
+# * Does the function correctly translate all of the existing database objects into the rollup model?
+
 def RefreshRollup():
   Rollup.objects.all().delete()
   FeedPeople = FeedPerson.objects.all()
