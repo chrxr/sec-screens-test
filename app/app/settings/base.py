@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_object_actions',
     'person',
     'algoliasearch_django',
 ]
@@ -130,6 +131,6 @@ MEDIA_ROOT = path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 ALGOLIA = {
-    'APPLICATION_ID': '3UWZEZ3YTQ',
+    'APPLICATION_ID': 'Y9BTEKTN4T',
     'API_KEY': environ.get("ALGOLIA_API_KEY")
 }

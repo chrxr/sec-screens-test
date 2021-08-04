@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import os
 from django.db import models
-from person.models import Person
+from person.models import FeedPerson, RefreshRollup
 
 
 # Create your views here.
@@ -20,15 +20,16 @@ def import_view(request):
   for person in people:
     if len(person.location.fordisp.text) > 0:
       if person.eppn.text:
-        obj, created = Person.objects.update_or_create(
+        obj, created = FeedPerson.objects.update_or_create(
           eppn=person.eppn.text,
           defaults={
             'firstname': person.givenname.text,
             'lastname': person.lastname.text,
-            'fullname': person.gecos.text,
+            'name': person.gecos.text,
             'location': person.location.fordisp.text,
           }
         )
         print(created)
+  RefreshRollup()
       
 

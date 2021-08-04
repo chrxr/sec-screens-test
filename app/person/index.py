@@ -1,10 +1,10 @@
 from algoliasearch_django import AlgoliaIndex
 from algoliasearch_django.decorators import register
 
-from .models import Person
+from .models import Rollup
 
-@register(Person)
+@register(Rollup)
 class YourModelIndex(AlgoliaIndex):
-    fields = ('fullname', 'fullnameOverride', 'location', 'locationOverride')
-    settings = {'searchableAttributes': ['fullname', 'fullnameOverride']}
+    fields = ('name', 'location')
+    settings = {'searchableAttributes': ['name']}
     index_name = 'person_index'
