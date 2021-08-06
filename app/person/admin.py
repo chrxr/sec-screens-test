@@ -1,5 +1,6 @@
 from django.contrib import admin, messages
-from .models import Person, FeedPerson, Place, Rollup, RefreshRollup
+from .models import Person, FeedPerson, Place, Rollup
+from .utils.rollup import RefreshRollup
 from django_object_actions import DjangoObjectActions
 
 # Register your models here.

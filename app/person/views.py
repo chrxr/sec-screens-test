@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse
+# from django.shortcuts import render
 from bs4 import BeautifulSoup
 import urllib.request
-import os
-from django.db import models
-from person.models import FeedPerson, RefreshRollup
+from person.models import FeedPerson
+from person.utils.rollup import RefreshRollup
 
 
 # Create your views here.
@@ -29,7 +29,8 @@ def import_view(request):
             'location': person.location.fordisp.text,
           }
         )
-        print(created)
   RefreshRollup()
+
+  return HttpResponse("Import successful!")
       
 
